@@ -4,6 +4,7 @@
     --header-bg-color: #fee2e2;
     --card-bg-color: #fee2e2;
     --card-title-bg-color: #0c0a09;
+    --form-bg-color: #fff7ed;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -54,4 +55,54 @@ header > h2 {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: #fee2e2;
+}
+
+.bookRemoveButton {
+    height: 25px;
+    width: 25px;
+    background-color: var(--card-bg-color);
+    border-radius: 50%;
+    position: relative;
+    left: 215px;
+    bottom: 148px;
+    font-weight: bolder;
+}
+
+#newBookButton {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    background-color: var(--card-bg-color);
+    height: 60px;
+    border-radius: 12px;
+    cursor: pointer;
+    
+}
+
+#bookFormContainer {
+    background-color: var(--form-bg-color);
+    height: 400px;
+    width: 500px;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+#bookForm {
+    padding: 20px;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+}
+
+#addBookButton {
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 50px;
+    height: 50px;
+    width: 350px;
+    place-self: center;
+
 }
