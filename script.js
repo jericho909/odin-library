@@ -4,6 +4,8 @@ const addBookButton = document.getElementById("addBookButton");
 const form = document.getElementById("bookForm");
 const removeBook = document.getElementById("bookRemoveButton");
 const bookshelf = document.getElementById("bookshelf");
+const readButton = document.getElementById("readButton");
+let bookStatus;
 
 let myLibrary = [];
 
@@ -17,15 +19,13 @@ function addBookToLibrary(book){
     myLibrary.push(book)
 }
 
-
-
-//let book1 = new Book("a","b","31");
-//let book2 = new Book("g","h","42");
-//let book3 = new Book("The Hobbit", "J.R.R. Tolkien", "250");
-//addBookToLibrary(book1)
-//addBookToLibrary(book2)
-//addBookToLibrary(book3)
-
+Book.prototype.isRead = function(){
+    if(bookStatus === "read") {
+        return true
+    } else {
+        return false
+    }
+};
 
 function displayBook(i){
     for (i of myLibrary) {
@@ -35,11 +35,15 @@ function displayBook(i){
         let bookAuthor = document.createElement("h3");
         let bookPage = document.createElement("h3");
         let removeBook = document.createElement("button");
+        let readButton = document.createElement("button");
         book.setAttribute("class", "book");
         bookTitle.setAttribute("class", "bookTitle");
         bookAuthor.setAttribute("class", "bookAuthor");
         bookPage.setAttribute("class", "bookPage");
         removeBook.setAttribute("class", "bookRemoveButton");
+        readButton.setAttribute("class", "readButton");
+        readButton.setAttribute("id", "readButton");
+        readButton.innerText = "I read it."
         removeBook.innerText = "X";
         bookTitle.textContent = (`Title: ${i.title}`);
         bookAuthor.textContent = `Author: ${i.author}`;
@@ -48,12 +52,26 @@ function displayBook(i){
         book.appendChild(bookAuthor);
         book.appendChild(bookPage);
         book.appendChild(removeBook);
+        book.appendChild(readButton);
         bookshelf.appendChild(book);
-        
+        bookStatus = "read";
         removeBook.addEventListener("click",() => {
             bookshelf.removeChild(book)
-            myLibrary.splice(book, 1)
+            //myLibrary.splice(book, 1) -> I don't know if this does anything lmao
         })
+
+        readButton.addEventListener("click", () => {
+            if (bookStatus === "read"){
+            readButton.style.backgroundColor = "rgba(255, 0, 0, 0.4)";
+            readButton.innerText = "I did not read it.";
+            bookStatus = "not-read";
+            } else {
+            readButton.style.backgroundColor = "rgba(0, 128, 0, 0.4)";
+            readButton.innerText = "I read it.";
+            bookStatus = "read";
+            }
+            
+        });
     }
 }
 

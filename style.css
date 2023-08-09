@@ -68,6 +68,14 @@ header > h2 {
     font-weight: bolder;
 }
 
+.readButton {
+    height: 50px;
+    width: 75px;
+    place-self: center;
+    background-color: rgba(0, 128, 0, 0.4);
+    border-radius: 6px;
+}
+
 #newBookButton {
     position: fixed;
     bottom: 5%;
