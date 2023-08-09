@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+:root{
+    --background-color: #7f1d1d;
+    --header-bg-color: #fee2e2;
+    --card-bg-color: #fee2e2;
+    --card-title-bg-color: #0c0a09;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+
+}
+
+header {
+    background-color: var(--header-bg-color);
+    font-size: 32px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+header > h2 {
+    margin: 0;
+    color: black;
+}
+
+#bookshelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 60px;
+    padding: 25px 200px;
+}
+
+.book {
+    width: 250px;
+    height: 300px;
+    border-radius: 5px;
+    margin: 2rem 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease;
+    background: var(--card-bg-color);
+}
+
+.bookTitle {
+    background-color: var(--card-title-bg-color);
+    padding: 0.5rem 0;
+    margin: -0.5rem 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fee2e2;
+}
